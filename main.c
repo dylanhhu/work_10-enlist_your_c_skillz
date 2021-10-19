@@ -10,6 +10,11 @@ int main() {
     myRaces = insert_front(myRaces, "Dylan", "Hu", "Breast", 100, 1, 4.01, 2);
     print_list(myRaces);
 
+    printf("\nRemoving node with id 100:\n");
+
+    myRaces = remove_node(myRaces, 100);
+    print_list(myRaces);
+
     printf("\nRemoving node with id 1:\n");
 
     myRaces = remove_node(myRaces, 1);
