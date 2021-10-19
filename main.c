@@ -10,17 +10,17 @@ int main() {
     myRaces = insert_front(myRaces, "Dylan", "Hu", "Breast", 100, 1, 4.01, 2);
     print_list(myRaces);
 
-    printf("\n");
+    printf("\nRemoving node with id 1:\n");
 
     myRaces = remove_node(myRaces, 1);
     print_list(myRaces);
 
-    printf("\n");
+    printf("\nRemoving node with id 2:\n");
 
     myRaces = remove_node(myRaces, 2);
     print_list(myRaces);
 
-    printf("\n");
+    printf("\nFreeing entire list:\n");
 
     // Free the whole list
     myRaces = free_list(myRaces);
