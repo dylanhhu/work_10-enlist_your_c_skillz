@@ -2,12 +2,25 @@
 #include <stdlib.h>
 #include "linkedlist.h"
 
+
 int main() {
     // Create a new linked list and fill it with a few nodes
-    struct swimrace_list *myRaces = make_swimrace("Dylan", "Hu", "Free", 100, 0, 49.47, NULL);
-    myRaces = insert_front(myRaces, "Dylan", "Hu", "Fly", 100, 0, 58.92);
-    myRaces = insert_front(myRaces, "Dylan", "Hu", "Breast", 100, 1, 4.01);
+    struct swimrace_list *myRaces = make_swimrace("Dylan", "Hu", "Free", 100, 0, 49.47, 0, NULL);
+    myRaces = insert_front(myRaces, "Dylan", "Hu", "Fly", 100, 0, 58.92, 1);
+    myRaces = insert_front(myRaces, "Dylan", "Hu", "Breast", 100, 1, 4.01, 2);
     print_list(myRaces);
+
+    printf("\n");
+
+    myRaces = remove_node(myRaces, 1);
+    print_list(myRaces);
+
+    printf("\n");
+
+    myRaces = remove_node(myRaces, 2);
+    print_list(myRaces);
+
+    printf("\n");
 
     // Free the whole list
     myRaces = free_list(myRaces);
