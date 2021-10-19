@@ -4,7 +4,7 @@
 
 int main() {
     // Create a new linked list and fill it with a few nodes
-    struct swimrace_list *myRaces = make_swimrace("Dylan", "Hu", "Free", 100, 0, 49.47);
+    struct swimrace_list *myRaces = make_swimrace("Dylan", "Hu", "Free", 100, 0, 49.47, NULL);
     myRaces = insert_front(myRaces, "Dylan", "Hu", "Fly", 100, 0, 58.92);
     myRaces = insert_front(myRaces, "Dylan", "Hu", "Breast", 100, 1, 4.01);
     print_list(myRaces);

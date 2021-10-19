@@ -1,7 +1,6 @@
 #include "linkedlist.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 
 // Prints the racetime struct in the format:
@@ -30,19 +29,8 @@ void print_list(struct swimrace_list *srl) {
 // Creates a new node, and adds it to the
 // front of the provided linked list
 struct swimrace_list * insert_front(struct swimrace_list *srl, char *f_name, char *l_name, char *stroke, int distance, int minutes, float seconds) {
-    struct swimrace_list *new_sr = malloc(sizeof(struct swimrace_list));
-
-    strcpy(new_sr->first_name, f_name);
-    strcpy(new_sr->last_name, l_name);
-
-    strcpy(new_sr->stroke, stroke);
-    new_sr->distance = distance;
-
-    new_sr->minutes = minutes;
-    new_sr->seconds = seconds;
-
-    new_sr->next = srl;
-
+    struct swimrace_list *new_sr = make_swimrace(f_name, l_name, stroke, distance, minutes, seconds, srl);
+    
     return new_sr;
 }
 
@@ -63,21 +51,21 @@ struct swimrace_list * free_list(struct swimrace_list *srl) {
 }
 
 
-// Creates a new swimrace_list with next NULL
+// Creates a new swimrace_list
 // and returns a pointer to it
-struct swimrace_list * make_swimrace(char *f_name, char *l_name, char *stroke, int distance, int minutes, float seconds) {
+struct swimrace_list * make_swimrace(char *f_name, char *l_name, char *stroke, int distance, int minutes, float seconds, struct swimrace_list *next) {
     struct swimrace_list *sr = malloc(sizeof(struct swimrace_list));
 
-    strcpy(sr->first_name, f_name);
-    strcpy(sr->last_name, l_name);
+    sr->first_name = f_name;
+    sr->last_name = l_name;
 
-    strcpy(sr->stroke, stroke);
+    sr->stroke = stroke;
     sr->distance = distance;
 
     sr->minutes = minutes;
     sr->seconds = seconds;
 
-    sr->next = NULL;
+    sr->next = next;
 
     return sr;
 }
